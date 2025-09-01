@@ -1,2 +1,5 @@
 title: Omer Erdogan
 theme: jekyll-theme-minimal
+logo: /assets/logo.png
+show_donwloads:true
+description: "Bu site ben ve uğraştığım projelerle ilgili bilgi taşır."
