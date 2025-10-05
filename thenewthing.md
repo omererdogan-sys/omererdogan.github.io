@@ -22,3 +22,5 @@ What is the minimum number of bits needed to represent 512 value
 Note: the answers didnt include rhe small numbers in the right down.
 
 This project was a difficult one. ind efinition of a function I faced a problem which I couldnt solve for near or more than an hour. I learnt how to convert the numbers to bits and possibly find other unknown variables. Looking back, understanding the parts about the usage of the for loops and the if loops was not too hard to understand, but I need to improve especially in function which as mentioned was left without a solution after a long time.
+
+the code: https://docs.google.com/document/d/18z0b6QdLmAOY4BAGu2k6oosdBtkatXWqs-YGtGYf7DE/edit
