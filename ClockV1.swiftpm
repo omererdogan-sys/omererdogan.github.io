@@ -1,0 +1,60 @@
+import SwiftUI
+
+struct ContentView: View {
+@State var ab:Int=0
+@State var ba:Int=0
+@State var hours:Int=0
+@State var MinSeg:Int=0
+    
+        
+    var body: some View {
+        Text("Hours: \(hours)")
+        ZStack{
+            Circle()
+                .foregroundColor(.yellow)
+                .frame(width: 250)
+                .onTapGesture{
+                    MinSeg+=1
+                    if hours==24{
+                        hours=0
+                    }
+                    if MinSeg==1{
+                        ab=90
+                        ba=ba+Int(7.5)
+                    }
+                    else if MinSeg==2{
+                        ab=180
+                        ba=ba+Int(7.5)
+                    }
+                    else if MinSeg==3{
+                        ab=270
+                        ba=ba+Int(7.5)
+                    }
+                    else if MinSeg==4{
+                        let ab=0
+                        MinSeg=0
+                        self.ab = 0
+                        hours+=Int(1)
+                        ba=ba+Int(7.5)
+                        }
+                   
+                    }
+
+                }
+            Rectangle()
+                .frame(width: 10, height: 100)
+                .foregroundColor(.black)
+                .rotationEffect(.degrees(Double(ab)))
+            Rectangle()
+                .frame(width: 5, height: 120)
+                .foregroundColor(.black)
+                .rotationEffect(.degrees(Double(ba)))
+            Circle()
+                .foregroundColor(.black)
+                .frame(width:11)
+                       
+            
+        }
+    }
+
+
