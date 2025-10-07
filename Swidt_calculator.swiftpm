@@ -1,0 +1,100 @@
+import SwiftUI
+
+struct ContentView: View {
+@State var uIa = ""
+@State var uI1 = ""
+@State var a = ""
+@State var b = ""
+@State var ab = ""
+@State var ac: Int = 1
+    var body: some View {
+        VStack {
+            Text("Simple Calculator")
+                .offset(y:-275)
+                .font(.title)
+                .foregroundColor(.accentColor)
+            TextField("Enter first number", text:$uIa)
+                .offset(x:125, y:-100)
+            let a = Int(uIa)
+            TextField("Enter second number", text:$uI1)
+                .offset(x:110, y:-70)
+            let b = Int(uI1)
+            HStack{
+                Capsule()
+                    .overlay(
+                        Text("+")
+                            .foregroundColor(.black)
+                    )
+                    .frame(width: 50, height:30)
+                    .offset(x:-75, y:-60)
+                    .onTapGesture{
+                        let ab="a"}
+                    .overlay(
+                        Text("+")
+                            .foregroundColor(.black)
+                    )
+                Capsule()
+                    .overlay(
+                        Text("-")
+                            .foregroundColor(.black)
+                    )
+                    .frame(width: 50, height:30)
+                    .offset(x:-55, y:-60)
+                    .onTapGesture{
+                        let ab="b"}
+                Capsule()
+                    .overlay(
+                        Text("/")
+                            .foregroundColor(.black)
+                    )
+                    .frame(width: 50, height:30)
+                    .offset(x:-35, y:-60)
+                    .onTapGesture{
+                        let ab="c"}
+                Capsule()
+                    .overlay(
+                        Text("X")
+                            .foregroundColor(.black)
+                    )
+                    .frame(width: 50, height:30)
+                    .offset(x:-15, y:-60)
+                    .onTapGesture{
+                        let ab="d"}
+                Capsule()
+                    .overlay(
+                        Text("X")
+                            .foregroundColor(.black)
+                    )
+                    .frame(width: 50, height:30)
+                    .offset(x:-5, y:-60)
+                    .onTapGesture{
+                        let ab="%"}
+                
+            }
+            if ab == "a"{
+                ac = Int(a+b)
+                Text(ac)
+            }
+            else if ab == "b"{
+                ac = a-b
+                Text(ac)
+            }
+            else if ab == "a"{
+                ac = a/b
+                Text(ac)
+            }
+            else if ab == "a"{
+                ac = a*b
+                Text(ac)
+            }
+            else if ab == "a"{
+                ac = a%b
+                Text(ac)
+            }
+            }
+            
+                
+        }
+    
+}
+
