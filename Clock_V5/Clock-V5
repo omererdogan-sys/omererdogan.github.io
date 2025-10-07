@@ -1,0 +1,73 @@
+import SwiftUI
+
+struct ContentView: View {
+    @State var ab:Int=0
+    @State var hours:Int=0
+    @State var MinSeg:Int=0
+    @State var ba:Int=0
+   
+    
+    
+    var body: some View {
+        Text("Hours: \(hours)")
+        ZStack{
+            Circle()
+                .frame(width:252)
+               var ba  = Double(hours) * 30
+            Circle()
+                .foregroundColor(.yellow)
+                .frame(width: 250)
+                .onTapGesture{
+                    if hours==24{
+                        hours=0
+                        ab=0
+                        ba=0
+                    }
+                    hours+=Int(1)
+                    ba+=Double(Int(30))
+                }
+            
+            
+            
+            
+            
+            Rectangle()
+                .frame(width: 5, height: 120)
+                .foregroundColor(.black)
+                .rotationEffect(.degrees(Double(ab)),anchor: .bottom)
+                .offset(y:-60)
+            Rectangle()
+                .frame(width: 10, height: 100)
+                .foregroundColor(.black)
+                .rotationEffect(.degrees(Double(ba)), anchor: .bottom)
+                .offset(y:-50)
+            Circle()
+                .foregroundColor(.black)
+                .frame(width:11)
+            
+            
+            
+            
+            
+            
+            ForEach(1...12, id:\.self){ i in
+                Text("\(i)")
+                    .offset(y:-100)
+                    .rotationEffect(.degrees(Double(i) * 30))
+                
+            }
+            Button("Random"){
+                hours=Int.random(in: 1...24)
+            }
+            .offset(y:190)
+            
+         
+            
+            
+        }
+    }
+    
+
+}
+
+
