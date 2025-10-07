@@ -1,0 +1,23 @@
+ x=0
+while x<1:
+  n=int(input("enter a number"))
+  m=int(input("enter another number"))
+  answer= input("which operation would you like to do, and I will write the answer? (addition=a, subtraction=s, multiplication=m, division=d, modulo=mo, q= stop the operation)")
+  if answer=="a":
+    nm=n+m
+    print(nm)
+  elif answer=="s":
+    ns=n-m
+    print(ns)
+  elif answer=="m":
+    nmu=n*m
+    print(nmu)
+  elif answer=="d":
+    nd=n/m
+    print(ns)
+  elif answer=="mo":
+    nmo=n%m
+    print(nmo)
+  elif answer=="q":
+    break
+
