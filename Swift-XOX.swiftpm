@@ -1,0 +1,220 @@
+import SwiftUI
+
+struct ContentView: View {
+@State var A1=""
+@State var A2=""
+@State var A3=""
+@State var A4=""
+@State var A5=""
+@State var A6=""
+@State var A7=""
+@State var A8=""
+@State var A9=""
+@State var al=1
+    var body: some View {
+        VStack {
+            HStack {
+                Rectangle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Text(A1)
+                    )
+                    .onTapGesture{
+                        if[1,3,5,7,9].contains(Int(al))  {
+                            A1="X"
+                            al=al+1
+                        }
+                        else{
+                            A1="O"
+                            al=al+1
+                        }
+                    }
+                Rectangle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Text(A2)
+                    )
+                    .onTapGesture{
+                        if[1,3,5,7,9].contains(Int(al))  {
+                            A2="X"
+                            al=al+1
+                        }
+                        else{
+                            A2="O"
+                            al=al+1
+                        }
+                    }
+                Rectangle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Text(A3)
+                    )
+                    .onTapGesture{
+                        if[1,3,5,7,9].contains(Int(al))  {
+                            A3="X"
+                            al=al+1
+                        }
+                        else{
+                            A3="O"
+                            al=al+1
+                        }
+                    }
+            }
+            HStack {
+                Rectangle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Text(A4)
+                    )
+                    .onTapGesture{
+                        if[1,3,5,7,9].contains(Int(al))  {
+                            A4="X"
+                            al=al+1
+                        }
+                        else{
+                            A4="O"
+                            al=al+1
+                        }
+                    }
+                Rectangle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Text(A5)
+                    )
+                    .onTapGesture{
+                        if[1,3,5,7,9].contains(Int(al))  {
+                            A5="X"
+                            al=al+1
+                        }
+                        else{
+                            A5="O"
+                            al=al+1
+                        }
+                    }
+                Rectangle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Text(A6)
+                    )
+                    .onTapGesture{
+                        if[1,3,5,7,9].contains(Int(al))  {
+                            A6="X"
+                            al=al+1
+                        }
+                        else{
+                            A6="O"
+                            al=al+1
+                        }
+                    }
+            }
+            HStack {
+                Rectangle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Text(A7)
+                    )
+                    .onTapGesture{
+                        if[1,3,5,7,9].contains(Int(al))  {
+                            A7="X"
+                            al=al+1
+                        }
+                        else{
+                            A7="O"
+                            al=al+1
+                        }
+                    }
+                Rectangle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Text(A8)
+                    )
+                    .onTapGesture{
+                        if[1,3,5,7,9].contains(Int(al))  {
+                            A8="X"
+                            al=al+1
+                        }
+                        else{
+                            A8="O"
+                            al=al+1
+                        }
+                    }
+                Rectangle()
+                    .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, height: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                    .overlay(
+                        Text(A9)
+                    )
+                    .onTapGesture{
+                        if[1,3,5,7,9].contains(Int(al))  {
+                            A9="X"
+                            al=al+1
+                        }
+                        else{
+                            A9="O"
+                            al=al+1
+                        }
+                    }
+            }
+            if (A1 == "X" && A2 == "X" && A3 == "X") ||
+                (A4 == "X" && A5 == "X" && A6 == "X") || 
+                (A7 == "X" && A8 == "X" && A9 == "X") ||
+                (A1 == "X" && A4 == "X" && A7 == "X") ||  
+                (A2 == "X" && A5 == "X" && A8 == "X") || 
+                (A3 == "X" && A6 == "X" && A9 == "X") ||  
+                (A1 == "X" && A5 == "X" && A9 == "X") ||  
+                (A3 == "X" && A5 == "X" && A7 == "X")     
+            {
+                Text("X Wins")
+                
+            }
+            
+             else if (A1 == "O" && A2 == "O" && A3 == "O") ||
+                (A4 == "O" && A5 == "O" && A6 == "O") || 
+                (A7 == "O" && A8 == "O" && A9 == "O") ||
+                (A1 == "O" && A4 == "O" && A7 == "O") ||  
+                (A2 == "O" && A5 == "O" && A8 == "O") || 
+                (A3 == "O" && A6 == "O" && A9 == "O") ||  
+                (A1 == "O" && A5 == "O" && A9 == "O") ||  
+                (A3 == "O" && A5 == "O" && A7 == "O")     
+            {
+                 Text("O Wins")
+            
+            }
+            if al==10
+            {
+                Text("Start Again")
+            }
+       
+            Capsule()
+                .frame(width:80, height: 50)
+                .foregroundColor(.brown)
+                .overlay(
+                    Text("Reset")
+                )
+                .onTapGesture {
+                    A1=""
+                    A2=""
+                    A3=""
+                    A4=""
+                    A5=""
+                    A6=""
+                    A7=""
+                    A8=""
+                    A9=""
+                    al=1
+                }
+            
+            
+
+        }
+    }
+}
+
