@@ -1,0 +1,6 @@
+What was the hardest part of timing logic?
+The hardest part of the timing was not much but likely functions related to it which I got help from chatgpt via cheatsheet. I still have a dunction not fully understood but I got over all the difficulites to my understanding (almost) with help and code from chatgpt. Now I believe by questioning and trying to understand I can write the code of the game fully or near fully maybe even a little upgraded with little (possibly) help, where as I wrote the code trying to understand everypand every part of chatgpt and doing mostly so and then pasting it and doing a minor adjustment and some additions like adding a clock for the timer that works with the time variable.
+How did you use if, for, and functions?
+if's was used to detect if the user was touchinf any obstacles or the blue goal mainly, and also to detect if the game was over as a result of it and likely some more. functions were used for example to run when game's over or for a new level or time's for levels and such.
+What happens when your clock overflows?
+It says game over and asks to restart with the new button. It resets on time(not levels as I think its for time but may add it if its required.
