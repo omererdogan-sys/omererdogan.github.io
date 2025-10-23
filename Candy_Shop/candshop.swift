@@ -14,7 +14,9 @@ struct ContentView: View {
         @State var gumP=3
         @State var lolP=1
         @State var carS=2
-        @State var minutes=2
+        let startTime = Date()
+		let elapsedTime = Date().timeIntervalSince(startTime)
+		let minutes = elapsedTime / 60.0
         @State var cb=2
         @State var gb=2
         @State var lb=2
