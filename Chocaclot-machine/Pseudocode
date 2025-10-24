@@ -1,0 +1,19 @@
+SET min<— 0
+    SET temp<—20
+            PROCEDURE hcm(){
+                for  minuteElapsed<—1...60{
+                  Set  temp<—temp+5
+                    if temp<50 THEN
+                        Display "Minute:”+min+” --> the drink is still cold."
+                        if 50<=temp=<70 THEN
+                            Display "Minute:”+min+” --> the drink is ready to serve!"
+                        }
+                        if 70<temp<85 THEN
+                            Display "Minute:”+min+” --> Too hot! Wait before drinking"
+                        }
+                        if 85<temp THEN
+                            Display "Minute:”+min+” --> ⚠ Machine auto-stop activated!"
+                            Display "Total temprature change:65C*"
+                            break
+             CALL  hcm()
+
