@@ -1,0 +1,1 @@
+The article was nice, her explaining many thing from her current swift to how they saw Tim cook and why she didn't deserve to win a time. I think it shows that this is not a too easy to win kind of thing but is possible with right efforts. I plan to do or try to do my app about like an app for something to detect joint problems and such.
