@@ -1,0 +1,1 @@
+I choce this theme as it was it was easy to represent and design. A simplerndesign could've fit. In this project I practiced writing lists and running them with foreach loops. If my list had more items I could've just changed the design slightly.
