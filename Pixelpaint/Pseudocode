@@ -1,0 +1,8 @@
+How will you create a list with numbers 0–99?
+I wont do it from @state or such but rather do it using foreach loops to simulate them by theirself.
+How will you draw a 10×10 grid using loops?
+By making a vertical foreach inside a horizontal for each and each will also have their own codes aswell.
+What happens when the user types a number?
+If its in the grid it turn a specific color. The user can do this 5 times and every time a new log is done after thatthe oldest log will be replaced.
+Which part will be a function?
+The function does most not all the things likely including the drawing of the grids and so on.
