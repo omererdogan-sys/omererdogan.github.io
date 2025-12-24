@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects Showcase</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Prism (syntax highlighting) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+
+  <!-- Styles -->
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-700: #3730a3;
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --overlay: rgba(15, 23, 42, 0.86);
+      --radius: 12px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      z-index: 1000;
+    }
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.2px;
+    }
+    .brand span { color: var(--muted); font-size: 0.95rem; }
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+    }
+    .nav a:hover, .nav a[aria-current="page"] {
+      background: #eef2ff;
+      color: var(--primary-700);
+    }
+
+    /* Sections */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+    .section h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.75rem;
+      letter-spacing: 0.2px;
+    }
+    .lead {
+      margin: 0 0 1.5rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Card */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow
+          .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.1);
+    }
+    .thumb {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      background: #e5e7eb;
+    }
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 280ms ease;
+    }
+    .card:hover .thumb img { transform: scale(1.03); }
+    .content {
+      padding: 1rem;
+      display: grid;
+      gap: 0.25rem;
+    }
+    .title { margin: 0; font-size: 1.1rem; font-weight: 600; }
+    .desc  { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+    /* Modal */
+    .modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      padding: 1.5rem;
+      background: var(--overlay);
+      z-index: 2000;
+      overflow-y: auto;
+    }
+    .modal[aria-hidden="false"] { display: block; }
+    .dialog {
+      max-width: 980px;
+      margin: auto;
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      animation: rise 220ms ease;
+      outline: none;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .dialog-title { 
+      margin: 0; 
+      font-size: 1.15rem; 
+      font-weight: 600; 
+    }
+    .close-btn {
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .dialog-body {
+      padding: 1rem;
+      display: grid;
+      gap: 1rem;
+    }
+    .hero {
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+    .meta { color: var(--muted); }
+
+    /* Prism container */
+    pre[class*="language-"] {
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+    }
+
+    /* Footer hint */
+    .hint {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 0.75rem 1rem 2rem;
+    }
+
+    /* Small devices */
+    @media (max-width: 560px) {
+      .thumb { height: 160px; }
+      .hero  { max-height: 340px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">
+        <h1>Projects</h1>
+        <span>Showcase</span>
+      </div>
+      <div>
+        <a href="#projects" aria-current="page">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <!-- Projects -->
+  <section id="projects" class="section" aria-labelledby="projects-title">
+    <h2 id="projects-title">Featured projects</h2>
+    <p class="lead">Click any card to see a larger image, read details, and view code — all without leaving the page.</p>
+
+    <div class="grid">
+      <!-- World Clock V1–V5 -->
+      <article class="card" tabindex="0" role="button" aria-label="Open World Clock V1" data-modal="modal-worldclock-v1">
+        <div class="thumb"><img src="images/worldclock_v1.png" alt="World Clock V1 screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">World Clock V1</h3><p class="desc">First iteration: basic timezone display.</p></div>
+      </article>
+      <article class="card" tabindex="0" role="button" aria-label="Open World Clock V2" data-modal="modal-worldclock-v2">
+        <div class="thumb"><img src="images/worldclock_v2.png" alt="World Clock V2 screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">World Clock V2</h3><p class="desc">Improved UI and city list.</p></div>
+      </article>
+      <article class="card" tabindex="0" role="button" aria-label="Open World Clock V3" data-modal="modal-worldclock-v3">
+        <div class="thumb"><img src="images/worldclock_v3.png" alt="World Clock V3 screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">World Clock V3</h3><p class="desc">Refined layout and time formatting.</p></div>
+      </article>
+      <article class="card" tabindex="0" role="button" aria-label="Open World Clock V4" data-modal="modal-worldclock-v4">
+        <div class="thumb"><img src="images/worldclock_v4.png" alt="World Clock V4 screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">World Clock V4</h3><p class="desc">Performance and accessibility updates.</p></div>
+      </article>
+      <article class="card" tabindex="0" role="button" aria-label="Open World Clock V5" data-modal="modal-worldclock-v5">
+        <div class="thumb"><img src="images/worldclock_v5.png" alt="World Clock V5 screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">World Clock V5</h3><p class="desc">Latest version with polished UI.</p></div>
+      </article>
+      <!-- Candy Shop -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Candy Shop" data-modal="modal-candyshop">
+        <div class="thumb"><img src="images/candyshop.png" alt="Candy Shop screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Candy Shop</h3><p class="desc">Swift playground simulating a candy store.</p></div>
+      </article>
+
+      <!-- Chocaclot Machine -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Chocaclot Machine" data-modal="modal-chocaclot">
+        <div class="thumb"><img src="images/chocaclot_machine.png" alt="Chocaclot Machine screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Chocaclot Machine</h3><p class="desc">Chocolate machine logic in Swift.</p></div>
+      </article>
+
+      <!-- Color Spinner -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Color Spinner" data-modal="modal-colorspinner">
+        <div class="thumb"><img src="images/color_spinner.png" alt="Color Spinner screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Color Spinner</h3><p class="desc">Interactive color wheel/selector.</p></div>
+      </article>
+
+      <!-- Cryptography -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Cryptography" data-modal="modal-crypto">
+        <div class="thumb"><img src="images/cryptography.png" alt="Cryptography screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Cryptography</h3><p class="desc">Caesar cipher and crypto basics.</p></div>
+      </article>
+
+      <!-- Decimal-Binary Converter -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Decimal-Binary Converter" data-modal="modal-decimalbinary">
+        <div class="thumb"><img src="images/decimal_binary.png" alt="Decimal-Binary converter screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Decimal-Binary Converter</h3><p class="desc">Convert numbers between bases.</p></div>
+      </article>
+      <!-- Frog Escape -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Frog Escape" data-modal="modal-frog">
+        <div class="thumb"><img src="images/frog_escape.png" alt="Frog Escape screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Frog Escape</h3><p class="desc">Swift mini-game: jump past obstacles.</p></div>
+      </article>
+
+      <!-- Ice Cream Overflow -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Ice Cream Overflow" data-modal="modal-icecream-overflow">
+        <div class="thumb"><img src="images/icecream_overflow.png" alt="Ice Cream Overflow screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Ice Cream Overflow</h3><p class="desc">Scoops logic and overflow detection.</p></div>
+      </article>
+
+      <!-- Ice Cream -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Ice Cream" data-modal="modal-icecream">
+        <div class="thumb"><img src="images/icecream.png" alt="Ice Cream screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Ice Cream</h3><p class="desc">Swift assets and interactions.</p></div>
+      </article>
+
+      <!-- Initials with Code -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Initials with Code" data-modal="modal-initials">
+        <div class="thumb"><img src="images/initials.png" alt="Initials with Code screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Initials with Code</h3><p class="desc">Draw initials using code.</p></div>
+      </article>
+
+      <!-- Pixelpaint -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Pixelpaint" data-modal="modal-pixelpaint">
+        <div class="thumb"><img src="images/pixelpaint.png" alt="Pixelpaint screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Pixelpaint</h3><p class="desc">Pixel art editor experiment.</p></div>
+      </article>
+      <!-- Portrait -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Portrait" data-modal="modal-portrait">
+        <div class="thumb"><img src="images/portrait.png" alt="Portrait screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Portrait</h3><p class="desc">Code-driven portrait drawing.</p></div>
+      </article>
+
+      <!-- Practice -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Practice" data-modal="modal-practice">
+        <div class="thumb"><img src="images/practice.png" alt="Practice screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Practice</h3><p class="desc">APCSP practice materials.</p></div>
+      </article>
+
+      <!-- Python Calculator -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Python Calculator" data-modal="modal-pythoncalc">
+        <div class="thumb"><img src="images/python_calculator.png" alt="Python Calculator screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Python Calculator</h3><p class="desc">Basic CLI calculator.</p></div>
+      </article>
+
+      <!-- Scratch XOX -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Scratch XOX" data-modal="modal-scratchxox">
+        <div class="thumb"><img src="images/scratch_xox.png" alt="Scratch XOX screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Scratch XOX</h3><p class="desc">Tic‑tac‑toe in Scratch.</p></div>
+      </article>
+
+      <!-- Swift Calculator -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Swift Calculator" data-modal="modal-swiftcalc">
+        <div class="thumb"><img src="images/swift_calculator.png" alt="Swift Calculator screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Swift Calculator</h3><p class="desc">Calculator in Swift.</p></div>
+      </article>
+      <!-- Swift Design -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Swift Design" data-modal="modal-swiftdesign">
+        <div class="thumb"><img src="images/swift_design.png" alt="Swift Design screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Swift Design</h3><p class="desc">UI/UX experiments in Swift.</p></div>
+      </article>
+
+      <!-- Swift XOX -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Swift XOX" data-modal="modal-swiftxox">
+        <div class="thumb"><img src="images/swift_xox.png" alt="Swift XOX screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Swift XOX</h3><p class="desc">Tic‑tac‑toe in Swift.</p></div>
+      </article>
+
+      <!-- ArrayMapV1 / WorldClockV1 -->
+      <article class="card" tabindex="0" role="button" aria-label="Open ArrayMapV1 / WorldClockV1" data-modal="modal-arraymap">
+        <div class="thumb"><img src="images/arraymap_worldclock_v1.png" alt="ArrayMapV1 / WorldClockV1 screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">ArrayMapV1 / WorldClockV1</h3><p class="desc">Early array mapping for world clocks.</p></div>
+      </article>
+
+      <!-- Review write-ups -->
+      <article class="card" tabindex="0" role="button" aria-label="Open Review write-ups" data-modal="modal-review">
+        <div class="thumb"><img src="images/review.png" alt="Review write-ups screenshot" loading="lazy"></div>
+        <div class="content"><h3 class="title">Review write‑ups</h3><p class="desc">Project evaluations and reflections.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Optional sections for nav -->
+  <section id="about" class="section" aria-labelledby="about-title">
+    <h2 id="about-title">About</h2>
+    <p class="lead">This gallery showcases coursework and personal projects. All content is static and optimized for GitHub Pages.</p>
+  </section>
+
+  <section id="contact" class="section" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact</h2>
+    <p class="lead">Add links to email, GitHub, or socials here if you’d like.</p>
+  </section>
+
+  <p class="hint">Tip: Replace placeholder images under images/ and paste real code snippets into the modals. Everything else is ready.</p>
+  <!-- Modals: one per project -->
+  <!-- World Clock V1 -->
+  <div class="modal" id="modal-worldclock-v1" aria-hidden="true" aria-labelledby="modal-worldclock-v1-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-worldclock-v1-title" class="dialog-title">World Clock V1</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/worldclock_v1.png" alt="World Clock V1 large screenshot" loading="lazy">
+        <p class="meta">First iteration: static list of cities and basic timezone handling.</p>
+        <pre><code class="language-swift">// Example: minimal model for a city clock
+struct CityClock {
+    let city: String
+    let timeZoneId: String
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- World Clock V2 -->
+  <div class="modal" id="modal-worldclock-v2" aria-hidden="true" aria-labelledby="modal-worldclock-v2-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-worldclock-v2-title" class="dialog-title">World Clock V2</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/worldclock_v2.png" alt="World Clock V2 large screenshot" loading="lazy">
+        <p class="meta">Improved UI with selectable city list and formatted times.</p>
+        <pre><code class="language-swift">// Example: formatted local time
+func localTime(for timeZoneId: String) -> String {
+    let tz = TimeZone(identifier: timeZoneId) ?? .current
+    let formatter = DateFormatter()
+    formatter.timeZone = tz
+    formatter.dateStyle = .none
+    formatter.timeStyle = .medium
+    return formatter.string(from: Date())
+}</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- World Clock V3 -->
+  <div class="modal" id="modal-worldclock-v3" aria-hidden="true" aria-labelledby="modal-worldclock-v3-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-worldclock-v3-title" class="dialog-title">World Clock V3</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/worldclock_v3.png" alt="World Clock V3 large screenshot" loading="lazy">
+        <p class="meta">Refined layout, better date/time formatting.</p>
+        <pre><code class="language-swift">// Example: city list
+let cities = [
+    CityClock(city: "İstanbul", timeZoneId: "Europe/Istanbul"),
+    CityClock(city: "New York", timeZoneId: "America/New_York"),
+    CityClock(city: "Tokyo", timeZoneId: "Asia/Tokyo")
+]</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- World Clock V4 -->
+  <div class="modal" id="modal-worldclock-v4" aria-hidden="true" aria-labelledby="modal-worldclock-v4-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-worldclock-v4-title" class="dialog-title">World Clock V4</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/worldclock_v4.png" alt="World Clock V4 large screenshot" loading="lazy">
+        <p class="meta">Performance improvements and accessibility updates.</p>
+        <pre><code class="language-swift">// Example: time difference calculation
+func offset(from base: TimeZone, to other: TimeZone) -> TimeInterval {
+    TimeInterval(other.secondsFromGMT() - base.secondsFromGMT())
+}</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- World Clock V5 -->
+  <div class="modal" id="modal-worldclock-v5" aria-hidden="true" aria-labelledby="modal-worldclock-v5-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-worldclock-v5-title" class="dialog-title">World Clock V5</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/worldclock_v5.png" alt="World Clock V5 large screenshot" loading="lazy">
+        <p class="meta">Latest version with polished UI and city management.</p>
+        <pre><code class="language-swift">// Example: composed model
+struct CityClockVM {
+    let clock: CityClock
+    var localTimeText: String { localTime(for: clock.timeZoneId) }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Candy Shop -->
+  <div class="modal" id="modal-candyshop" aria-hidden="true" aria-labelledby="modal-candyshop-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-candyshop-title" class="dialog-title">Candy Shop</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/candyshop.png" alt="Candy Shop large screenshot" loading="lazy">
+        <p class="meta">Playground simulating items, prices, and checkout.</p>
+        <pre><code class="language-swift">struct Candy { let name: String; let price: Double }
+let catalog = [Candy(name: "Gummy", price: 1.99), Candy(name: "Chocolate", price: 2.49)]</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- Chocaclot Machine -->
+  <div class="modal" id="modal-chocaclot" aria-hidden="true" aria-labelledby="modal-chocaclot-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-chocaclot-title" class="dialog-title">Chocaclot Machine</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/chocaclot_machine.png" alt="Chocaclot Machine large screenshot" loading="lazy">
+        <p class="meta">Chocolate dispensing logic with capacity checks.</p>
+        <pre><code class="language-swift">class ChocolateMachine {
+    private(set) var count = 0
+    let capacity = 10
+    func add() { if count < capacity { count += 1 } }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Color Spinner -->
+  <div class="modal" id="modal-colorspinner" aria-hidden="true" aria-labelledby="modal-colorspinner-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-colorspinner-title" class="dialog-title">Color Spinner</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/color_spinner.png" alt="Color Spinner large screenshot" loading="lazy">
+        <p class="meta">Interactive color selection and display.</p>
+        <pre><code class="language-swift">import SwiftUI
+struct ColorSpinner: View {
+    @State private var hue: Double = 0.5
+    var body: some View {
+        VStack {
+            Color(hue: hue, saturation: 0.8, brightness: 0.9)
+            Slider(value: $hue, in: 0...1)
+        }
+    }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- Cryptography -->
+  <div class="modal" id="modal-crypto" aria-hidden="true" aria-labelledby="modal-crypto-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-crypto-title" class="dialog-title">Cryptography</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/cryptography.png" alt="Cryptography large screenshot" loading="lazy">
+        <p class="meta">Caesar cipher, encoding/decoding basics.</p>
+        <pre><code class="language-swift">func caesar(_ text: String, shift: Int) -> String {
+    let a = Array(text.unicodeScalars)
+    return String(a.map { scalar in
+        let v = Int(scalar.value)
+        let base = (65...90).contains(v) ? 65 : (97...122).contains(v) ? 97 : v
+        guard base != v else { return Character(scalar) }
+        let shifted = (v - base + shift) % 26 + base
+        return Character(UnicodeScalar(shifted)!)
+    })
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decimal-Binary Converter -->
+  <div class="modal" id="modal-decimalbinary" aria-hidden="true" aria-labelledby="modal-decimalbinary-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-decimalbinary-title" class="dialog-title">Decimal‑Binary Converter</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/decimal_binary.png" alt="Decimal-Binary large screenshot" loading="lazy">
+        <p class="meta">Convert integers between decimal and binary.</p>
+        <pre><code class="language-swift">func toBinary(_ n: Int) -> String {
+    var n = n; var bits: [Int] = []
+    repeat { bits.append(n % 2); n /= 2 } while n > 0
+    return bits.reversed().map(String.init).joined()
+}</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- Frog Escape -->
+  <div class="modal" id="modal-frog" aria-hidden="true" aria-labelledby="modal-frog-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-frog-title" class="dialog-title">Frog Escape</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/frog_escape.png" alt="Frog Escape large screenshot" loading="lazy">
+        <p class="meta">Jump mechanic and obstacles tracking.</p>
+        <pre><code class="language-swift">struct Frog {
+    var position = 0
+    mutating func jump(by steps: Int = 1) { position += steps }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ice Cream Overflow -->
+  <div class="modal" id="modal-icecream-overflow" aria-hidden="true" aria-labelledby="modal-icecream-overflow-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-icecream-overflow-title" class="dialog-title">Ice Cream Overflow</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/icecream_overflow.png" alt="Ice Cream Overflow large screenshot" loading="lazy">
+        <p class="meta">Add scoops, detect overflow, reset cone.</p>
+        <pre><code class="language-swift">class IceCream {
+    private(set) var scoops = 0
+    let maxScoops = 3
+    func addScoop() { scoops += 1; if scoops > maxScoops { scoops = 0 } }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- Ice Cream -->
+  <div class="modal" id="modal-icecream" aria-hidden="true" aria-labelledby="modal-icecream-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-icecream-title" class="dialog-title">Ice Cream</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/icecream.png" alt="Ice Cream large screenshot" loading="lazy">
+        <p class="meta">Assets and logic for an ice cream UI.</p>
+        <pre><code class="language-swift">// Example placeholder snippet
+struct Scoop { let flavor: String }</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Initials with Code -->
+  <div class="modal" id="modal-initials" aria-hidden="true" aria-labelledby="modal-initials-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-initials-title" class="dialog-title">Initials with Code</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/initials.png" alt="Initials with Code large screenshot" loading="lazy">
+        <p class="meta">Render initials algorithmically.</p>
+        <pre><code class="language-swift">// Example placeholder
+func drawInitials() { /* drawing commands */ }</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pixelpaint -->
+  <div class="modal" id="modal-pixelpaint" aria-hidden="true" aria-labelledby="modal-pixelpaint-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-pixelpaint-title" class="dialog-title">Pixelpaint</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/pixelpaint.png" alt="Pixelpaint large screenshot" loading="lazy">
+        <p class="meta">Painting with pixels and color grids.</p>
+        <pre><code class="language-swift">// Example placeholder
+struct Pixel { var r, g, b: Int }</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- Portrait -->
+  <div class="modal" id="modal-portrait" aria-hidden="true" aria-labelledby="modal-portrait-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-portrait-title" class="dialog-title">Portrait</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/portrait.png" alt="Portrait large screenshot" loading="lazy">
+        <p class="meta">Code-driven portrait composition.</p>
+        <pre><code class="language-swift">// Example placeholder
+func drawPortrait() { /* vector paths */ }</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Practice -->
+  <div class="modal" id="modal-practice" aria-hidden="true" aria-labelledby="modal-practice-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-practice-title" class="dialog-title">Practice</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/practice.png" alt="Practice large screenshot" loading="lazy">
+        <p class="meta">APCSP exercises and notes. No code snippet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Python Calculator -->
+  <div class="modal" id="modal-pythoncalc" aria-hidden="true" aria-labelledby="modal-pythoncalc-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-pythoncalc-title" class="dialog-title">Python Calculator</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/python_calculator.png" alt="Python Calculator large screenshot" loading="lazy">
+        <p class="meta">Basic operations via CLI.</p>
+        <pre><code class="language-python">def calc(a, b, op):
+    return {'+': a+b, '-': a-b, '*': a*b, '/': a/b}[op]</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- Scratch XOX -->
+  <div class="modal" id="modal-scratchxox" aria-hidden="true" aria-labelledby="modal-scratchxox-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-scratchxox-title" class="dialog-title">Scratch XOX</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/scratch_xox.png" alt="Scratch XOX large screenshot" loading="lazy">
+        <p class="meta">Tic‑tac‑toe logic built in Scratch. No code snippet.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swift Calculator -->
+  <div class="modal" id="modal-swiftcalc" aria-hidden="true" aria-labelledby="modal-swiftcalc-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-swiftcalc-title" class="dialog-title">Swift Calculator</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/swift_calculator.png" alt="Swift Calculator large screenshot" loading="lazy">
+        <p class="meta">SwiftUI calculator with basic operations.</p>
+        <pre><code class="language-swift">func calc(_ a: Double, _ b: Double, op: String) -> Double {
+    switch op { case "+": return a+b; case "-": return a-b; case "*": return a*b; case "/": return a/b; default: return .nan }
+}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swift Design -->
+  <div class="modal" id="modal-swiftdesign" aria-hidden="true" aria-labelledby="modal-swiftdesign-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-swiftdesign-title" class="dialog-title">Swift Design</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/swift_design.png" alt="Swift Design large screenshot" loading="lazy">
+        <p class="meta">Design systems and components in SwiftUI.</p>
+        <pre><code class="language-swift">// Example placeholder
+struct ButtonStyle { /* styles */ }</code></pre>
+      </div>
+    </div>
+  </div>
+  <!-- Swift XOX -->
+  <div class="modal" id="modal-swiftxox" aria-hidden="true" aria-labelledby="modal-swiftxox-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-swiftxox-title" class="dialog-title">Swift XOX</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/swift_xox.png" alt="Swift XOX large screenshot" loading="lazy">
+        <p class="meta">Swift tic‑tac‑toe with simple AI.</p>
+        <pre><code class="language-swift">// Example placeholder
+enum Cell { case empty, x, o }</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ArrayMapV1 / WorldClockV1 -->
+  <div class="modal" id="modal-arraymap" aria-hidden="true" aria-labelledby="modal-arraymap-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-arraymap-title" class="dialog-title">ArrayMapV1 / WorldClockV1</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/arraymap_worldclock_v1.png" alt="ArrayMapV1 large screenshot" loading="lazy">
+        <p class="meta">Map arrays to city clocks for initial UI.</p>
+        <pre><code class="language-swift">let clocks = cities.map { CityClock(city: $0, timeZoneId: "Europe/Istanbul") }</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- Review write-ups -->
+  <div class="modal" id="modal-review" aria-hidden="true" aria-labelledby="modal-review-title" role="dialog">
+    <div class="dialog" tabindex="-1">
+      <div class="dialog-header">
+        <h3 id="modal-review-title" class="dialog-title">Review write‑ups</h3>
+        <button class="close-btn" type="button" aria-label="Close dialog" data-close>&times;</button>
+      </div>
+      <div class="dialog-body">
+        <img class="hero" src="images/review.png" alt="Review write-ups large screenshot" loading="lazy">
+        <p class="meta">Reflections and evaluations on projects. No code snippet.</p>
+      </div>
+    </div>
+  </div>
+  <!-- Prism JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-swift.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+
+  <!-- Interactions -->
+  <script>
+    // Open/close modals with accessibility: Enter/Space to open, ESC to close, overlay click to close
+    const cards = document.querySelectorAll('.card');
+    const modals = document.querySelectorAll('.modal');
+    let lastFocused = null;
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (!modal) return;
+      lastFocused = document.activeElement;
+      modal.setAttribute('aria-hidden', 'false');
+
+      // Focus dialog for keyboard handling
+      const dialog = modal.querySelector('.dialog');
+      dialog && dialog.focus();
+
+      // Prevent background scroll
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modal) {
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused) { lastFocused.focus(); lastFocused = null; }
+    }
+
+    // Card interactions
+    cards.forEach(card => {
+      const id = card.getAttribute('data-modal');
+      card.addEventListener('click', () => openModal(id));
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          openModal(id);
+        }
+      });
+    });
+    // Modal interactions
+    modals.forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        const isOverlay = e.target === modal;
+        const isCloseBtn = e.target.matches('[data-close]');
+        if (isOverlay || isCloseBtn) {
+          closeModal(modal);
+        }
+      });
+      modal.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal(modal);
+      });
+    });
+
+    // Optional: close all modals on hash change (nav links)
+    window.addEventListener('hashchange', () => {
+      modals.forEach(m => m.setAttribute('aria-hidden', 'true'));
+      document.body.style.overflow = '';
+    });
+  </script>
+</body>
+</html>
+<!-- End of file notes -->
+<!-- 
+This file includes:
+- Responsive design with CSS variables
+- Sticky header navigation
+- Grid of project cards
+- Accessible modals with keyboard support
+- Prism.js syntax highlighting
+- Lazy-loaded images
+- Placeholder code snippets for each project
+
+To customize:
+- Replace images in /images/ with actual screenshots
+- Replace placeholder code snippets with real Swift/Python code
+- Update descriptions as needed
+-->
+<!-- 
+Final reminder:
+- Copy all groups sequentially into one file named projects.html
+- Ensure you have the images folder with matching filenames
+- Test locally by opening in a browser
+- Deploy to GitHub Pages by pushing to your repo
+
+This concludes the full projects.html file.
+-->
