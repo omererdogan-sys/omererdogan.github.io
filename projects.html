@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects Showcase — Ömer Erdoğan</title>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-700: #3730a3;
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+      --card: #ffffff;
+      --border: #e2e8f0;
+      --radius: 12px;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    /* Header navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      z-index: 1000;
+    }
+    .nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .brand {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      letter-spacing: 0.2px;
+    }
+    .brand span { color: var(--muted); font-size: 0.95rem; }
+    .nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 0.75rem;
+      border-radius: 8px;
+    }
+    .nav a:hover, .nav a[aria-current="page"] {
+      background: #eef2ff;
+      color: var(--primary-700);
+    }
+
+    /* Sections */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1rem 3rem;
+    }
+    .section h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.75rem;
+      letter-spacing: 0.2px;
+    }
+    .lead {
+      margin: 0 0 1.5rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    /* Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    /* Clickable card as anchor */
+    .card {
+      display: block;                 /* make the whole box clickable */
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      padding: 1rem;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 32px rgba(0,0,0,0.1);
+      border-color: #c7d2fe;
+    }
+    .title { margin: 0; font-size: 1.1rem; font-weight: 600; }
+    .desc  { margin: 0.35rem 0 0; color: var(--muted); font-size: 0.95rem; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 1rem;
+    }
+
+    /* Small devices */
+    @media (max-width: 560px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">
+        <h1>Projects</h1>
+        <span>Showcase</span>
+      </div>
+      <div>
+        <a href="#projects" aria-current="page">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Projects -->
+  <section id="projects" class="section" aria-labelledby="projects-title">
+    <h2 id="projects-title">Featured projects</h2>
+    <p class="lead">Click any box to open the corresponding folder in GitHub.</p>
+
+    <div class="grid">
+      <!-- Fully clickable boxes (anchor = card) -->
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Big-Idea-3%20Review">
+        <h3 class="title">Big‑Idea‑3 Review</h3>
+        <p class="desc">Review materials.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/BigIdea2_Reflections">
+        <h3 class="title">BigIdea2 Reflections</h3>
+        <p class="desc">Reflections and notes.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Bigidea3">
+        <h3 class="title">Bigidea3</h3>
+        <p class="desc">Docs & reflections.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Candy_Shop">
+        <h3 class="title">Candy Shop</h3>
+        <p class="desc">Swift playground simulating a candy store.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Chocaclot-machine">
+        <h3 class="title">Chocaclot Machine</h3>
+        <p class="desc">Chocolate machine logic in Swift.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Clock_V1">
+        <h3 class="title">Clock V1</h3>
+        <p class="desc">World clock — first iteration.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Clock_V2">
+        <h3 class="title">Clock V2</h3>
+        <p class="desc">Improved UI and city list.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Clock_V3">
+        <h3 class="title">Clock V3</h3>
+        <p class="desc">Refined layout and formatting.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Clock_V5">
+        <h3 class="title">Clock V5</h3>
+        <p class="desc">Latest version with polished UI.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Color%20Spinner">
+        <h3 class="title">Color Spinner</h3>
+        <p class="desc">Interactive color wheel/selector.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Compression-work">
+        <h3 class="title">Compression Work</h3>
+        <p class="desc">Compression exercises.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Cryptography">
+        <h3 class="title">Cryptography</h3>
+        <p class="desc">Caesar cipher and crypto basics.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Data-Information">
+        <h3 class="title">Data‑Information</h3>
+        <p class="desc">Data concepts and notes.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Decimal-Binary">
+        <h3 class="title">Decimal‑Binary Converter</h3>
+        <p class="desc">Convert numbers between bases.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Frog_Espcape">
+        <h3 class="title">Frog Escape</h3>
+        <p class="desc">Swift mini‑game: jump past obstacles.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Ice-Cream-Overflow">
+        <h3 class="title">Ice Cream Overflow</h3>
+        <p class="desc">Scoops logic and overflow detection.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Ice_cream">
+        <h3 class="title">Ice Cream</h3>
+        <p class="desc">Swift assets and interactions.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Initials-with-code">
+        <h3 class="title">Initials with Code</h3>
+        <p class="desc">Draw initials using code.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Pixelpaint">
+        <h3 class="title">Pixelpaint</h3>
+        <p class="desc">Pixel art editor experiment.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Portrait">
+        <h3 class="title">Portrait</h3>
+        <p class="desc">Code‑driven portrait drawing.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Pracice">
+        <h3 class="title">Practice</h3>
+        <p class="desc">APCSP practice materials.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Python-Calculator">
+        <h3 class="title">Python Calculator</h3>
+        <p class="desc">Basic CLI calculator.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Scratch-XOX">
+        <h3 class="title">Scratch XOX</h3>
+        <p class="desc">Tic‑tac‑toe in Scratch.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Swift-Calculator">
+        <h3 class="title">Swift Calculator</h3>
+        <p class="desc">Calculator in Swift.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Swift-Deisgn">
+        <h3 class="title">Swift Design</h3>
+        <p class="desc">UI/UX experiments in Swift.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/Swift-XOX">
+        <h3 class="title">Swift XOX</h3>
+        <p class="desc">Tic‑tac‑toe in Swift.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/arraymapv1">
+        <h3 class="title">ArrayMapV1</h3>
+        <p class="desc">Early array mapping for world clocks.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/review">
+        <h3 class="title">Review write‑ups</h3>
+        <p class="desc">Project evaluations and reflections.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/robotmove">
+        <h3 class="title">Robot Move</h3>
+        <p class="desc">Movement logic experiments.</p>
+      </a>
+
+      <a class="card" href="https://github.com/omererdogan-sys/omererdogan.github.io/tree/main/worldclockv1">
+        <h3 class="title">WorldClockV1</h3>
+        <p class="desc">Another early world clock variant.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="section">
+    <h2>About</h2>
+    <p class="lead">A curated grid of my projects—click any box to jump straight to the code folders on GitHub.</p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p class="lead">Find me on GitHub: <strong>@omererdogan-sys</strong>.</p>
+  </section>
+
+  <footer>
+    © 2026 Ömer Erdoğan — All projects hosted on GitHub
+  </footer>
+</body>
+</html>
