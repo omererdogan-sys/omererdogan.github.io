@@ -1,0 +1,90 @@
+import SwiftUI
+
+
+
+struct ResultView: View {
+
+    var a: Int
+
+    var b: Int
+
+    
+
+    var t: Int
+
+    var w: Int
+
+    var l: Int
+
+    var to: Int
+
+    var body: some View {
+
+        if a==b{
+
+            Text("Tie")
+
+            Text("You Chose: \(a == 1 ? "🪨" : a == 2 ? "📄" : "✂️")") 
+
+            Text("Computer Chose: \(b == 1 ? "🪨" : b == 2 ? "📄" : "✂️")")
+
+            Text("Total Ties :\(t)")
+
+            Text("Total Wins :\(w)")
+
+            Text("Total Losses :\(l)")
+
+            Text("Total Matches :\(to)")
+
+        }
+
+        else if (a==1 && b==3 ||
+
+                 a==2 && b==1 ||
+
+                 a==3 && b==2) {
+
+            Text("You Won")
+
+            Text("You Chose: \(a == 1 ? "🪨" : a == 2 ? "📄" : "✂️")") 
+
+            Text("Computer Chose: \(b == 1 ? "🪨" : b == 2 ? "📄" : "✂️")")
+
+            Text("Total Ties :\(t)")
+
+            Text("Total Wins :\(w)")
+
+            Text("Total Losses :\(l)")
+
+            Text("Total Matches :\(to)")
+
+        }
+
+        else {
+
+            Text("You Lost")
+
+            Text("You Chose: \(a == 1 ? "🪨" : a == 2 ? "📄" : "✂️")") 
+
+            Text("Computer Chose: \(b == 1 ? "🪨" : b == 2 ? "📄" : "✂️")")
+
+            Text("Total Ties :\(t)")
+
+            Text("Total Wins :\(w)")
+
+            Text("Total Losses :\(l)")
+
+            Text("Total Matches :\(to)")
+
+        }
+
+    
+
+    
+
+
+
+}
+
+}
+
