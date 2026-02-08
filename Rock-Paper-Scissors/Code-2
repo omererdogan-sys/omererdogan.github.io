@@ -1,0 +1,60 @@
+import SwiftUI
+
+struct ContentView: View {
+
+@State var a:Int=0
+
+    @State var b:Int=0
+
+    var body: some View {
+
+        VStack(spacing:50) {
+
+            Text("Rock Paper Scissor")
+
+                .font(.title)
+
+            Text("Choose an emoji")
+
+            HStack(spacing:40){
+
+                Button("🪨"){
+
+                    a=1
+
+                    b=Int.random(in: 1...3)
+
+                }
+
+                Button("📄"){
+
+                    a=2
+
+                    b=Int.random(in: 1...3)
+
+                }
+
+                Button("✂️"){
+
+                    a=3
+
+                    b=Int.random(in: 1...3)
+
+                }
+
+            }
+
+            Result2View(a: a, b: b)
+
+            
+
+            
+
+        }
+
+    }
+
+}
+
+
+
