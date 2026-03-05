@@ -1,0 +1,255 @@
+COMPONENT A: PROGRAM CODE
+
+Submit one PDF file that contains all of your program code (including comments). Include comments or acknowledgments for any part of the submitted program code that has been written by someone other than you.
+
+Important: With text-based program. code, you can use the print command to save your program code as a PDF file, or you can copy and paste your code to a text document and then convert it into a PDF file.  Screen captures should not be blurry, and text should be at least 10 pt font size. 
+
+In your program, you must include student-developed program code that contains the following:
+Instructions for input from one of the following:
+◆ the user (including user actions that trigger events)
+◆ a device
+◆ an online data stream
+◆ a file
+
+Use of at least one list (or other collection type) to represent a collection of data that is stored and used to manage program complexity and help fulfill the program’s purpose
+
+Important: The data abstraction must make the program easier to develop (alternatives would be more complex) or easier to maintain (future changes to the size of the list would otherwise require significant modifications to the program code)
+
+At least one procedure that contributes to the program’s intended purpose, where you have defined:
+◆ the procedure’s name
+◆ the return type (if necessary)
+◆ one or more parameters
+
+An algorithm that includes sequencing, selection, and iteration that is in the body of the selected procedure
+Calls to your student-developed procedure 
+Instructions for output (tactile, audible, visual, or textual) based on input and program functionality
+
+
+
+
+
+
+
+
+COMPONENT B: VIDEO (CREATED INDEPENDENTLY) 
+
+Submit one video file that demonstrates the running of your program as described below. Collaboration is not allowed during the development of your video.
+
+Your video must demonstrate your program running, including:
+
+Input to your program
+At least one aspect of the functionality of your program
+Output produced by your program
+
+Your video may NOT contain:
+Any distinguishing information about yourself
+Voice narration (though text captions are encouraged)
+
+Your video must be:
+□ Either .webm, .mp4, .wmv, .avi, or .mov format
+□ No more than 1 minute in length
+□ No more than 30MB in file size
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+COMPONENT C: PERSONALIZED PROJECT REFERENCE
+
+Submit your responses to prompts 3a – 3d, which are described below. Your response to all prompts combined must not exceed 750 words (program code is not included in the word count). Collaboration is not allowed on the written responses. Instructions for submitting your written responses are available on the AP Computer Science Principles Exam Page on AP Central.
+
+3 a. Provide a written response that does all three of the following:  
+       Approx. 150 words (for all subparts of 3a combined) 
+
+i. Describes the overall purpose of the program 
+
+
+Create a formof entertainment that can be played with only 1 player. This will show past stats and the computer would choose and give unpredictable results using random number generation on swift.
+
+
+
+
+
+	ii. Describes what functionality of the program is demonstrated in the video
+
+
+How an input is provided and what are the data stored and shown on the screen. It shows how the computer answers are unpredictable and it stores the data of the games.
+
+
+
+
+
+
+	iii. Describes the input and output of the program demonstrated in the video
+
+The input is clicking on the emojis and the outcomes and showing who won that match what did who choose and times of win/loss/ties. The player chooses the input then a random one the computer chooses then the winner is decided and upon it specific inputs according to if the player lost won or tied is written and updates the UI upon it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3 b. Capture and paste two program code segments you developed during the administration of this task that contain a list (or other collection type) being used to manage complexity in your program. 
+Approx. 200 words (for all subparts of 3b combined, exclusive of program code)
+
+ i. The first program code segment must show how data have been stored in the list. 
+
+If a==b((thing)
+…
+to+=1 // to is the total number of games played and a or b is what the computer or the human chose and it compares both
+)
+
+
+
+
+
+Then, provide a written response that does all three of the following:
+ iii. Identifies the name of the list being used in this response
+
+There is t which is not a list though a collection of data and updates with everymatch if its a tie. It is increased by 1 if a tie is apparent and other ways stays stable during the game.
+
+
+iv. Describes what the data contained in the list represent in your program
+
+It shows how many ties happened in the game while playing. It doesnzrt update in any way if there is no ties for example .
+
+
+v. Explains how the selected list manages complexity in your program code by explaining why your program code could not be written, or how it would be written differently, if you did not use the list 
+
+Without this we would not be able to display the total number of ties properly with little effort or with any effort at all. This was a crucial step to display amount of ties in that set. Without it we might have needed to transform the input from other variables to to which works with the same logic but is unnecessary when we have this option to do for example.
+
+
+3 c. Capture and paste two program code segments you developed during the administration of this task that contain a student-developed procedure that implements an algorithm used in your program and a call to that procedure.
+Approx. 200 words (for all subparts of 3c combined, exclusive of program code) 
+
+i. The first program code segment must be a student-developed procedure that:
+□ Defines the procedure’s name and return type (if necessary)
+□ Contains and uses one or more parameters that have an effect on the functionality of the procedure 
+□ Implements an algorithm that includes sequencing, selection, and iteration  
+
+Not functionified
+
+
+
+
+
+ii. The second program code segment must show where your student-developed procedure is being called in your program.
+
+Only 1 function called at different places with same logic for different functions
+
+
+
+
+
+Then, provide a written response that does both of the following:
+
+iii. Describes in general what the identified procedure does and how it contributes to the overall functionality of the program
+
+It is to detect the total number of w/l/t and total matches basically using some if’s and can be TRANSITIONED into a function and it would have returned an integer and get an integer later possibly the integer would have added to a variable. (Currently not function) 
+
+
+
+
+
+
+iv. Explains in detailed steps how the algorithm implemented in the identified procedure works. Your explanation must be detailed enough for someone else to recreate it.
+
+
+
+If turned into a function with the inputted numbers it would have checked the equality and each number represent rock paper or scissor and so compares who wins according to it or if it is a tie. The additiopns are possibly returned and with a possible hard thing we can alternate certain combinations to solve it out.
+
+
+
+
+
+
+
+
+3 d. Provide a written response that does all three of the following: 
+        Approx. 200 words (for all subparts of 3d combined) 
+
+i. Describes two calls to the procedure identified in written response 3c. Each call must pass a different argument(s) that causes a different segment of code in the algorithm to execute.
+
+First call:
+
+If it had been a function f1(a,b)
+
+
+
+
+
+Second call:
+
+Only 1 function called at different places with same logic
+
+
+
+
+
+ii. Describes what condition(s) is being tested by each call to the procedure 
+
+Condition(s) tested by the first call:
+
+If the inputs are equal and according to what represents what who wins or if its a tie.
+
+
+
+
+
+Condition(s) tested by the second call: 
+
+
+Only 1 function called at different places with same logic
+
+
+
+
+
+iii. Identifies the result of each call 
+
+Result of the first call:
+
+
+Would have been maybe a return  2 numbers if possibly and if not a technical long input that could be simplified and solved outside the function or with another functioning.
+
+
+
+
+
+
+Result of the second call: 
+
+
+Only 1 function called at different places with same logic
+
+
+
+
+
