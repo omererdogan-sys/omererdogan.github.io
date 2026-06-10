@@ -1,0 +1,28 @@
+Thematic Areas
+E-Learning & Environment and Environmental Protection
+
+Problem
+In the modern world, we face with climate change world wide. Climate change had a significant effect on the planet so far and is projected to cause much more severe damage, including on the ecosystems and even human settlements and health. For a long lasting prevention, the solution may lie in basic enviormental education starting from childhood.
+
+Purpose
+The purpose of this project can be the following possibly: The project is intended to give the youth an easy and accessible way to learn about simple but interesting/important facts about climate and sustainability by using cards and interactive quizes.
+
+
+Research Brief
+Some of the measurable, important final outcomes of climate change is drought, damage to ecosystems, and melting of glaciers, which can cause disturbance in human settlement. And finally toxic gasses affecting human health as well. According to sources such as Earth.org education is a crucial part when fighting against climate change, opening opportunity for having an affect on climate change by teaching. Or according to https://www.nationalacademies.org/ education on all levels will “go beyond understanding the science behind climate change to help people make decisions and identify the individual and collective actions needed to ensure that individuals and communities can continue to thrive.”
+
+Technologies & Platform
+The technologies used was simply the platform mostly. For the development Swift programming language, primarily UI, was used. The program was built in swift playgrounds.
+
+
+Development
+This. was an old project with an original idea which was built by AI months ago. The idea and specifications initially was made up of cards, one for quizzing one for learning. The questions was same/similar and they were programmed to appear in not a very linear, a bit random order to more truly test the user, and increase the functionality.
+
+ProcessProblems Encountered
+–
+
+SolutionsConclusion
+–
+
+Evaluation Future (Meaning?)
+
